@@ -3,7 +3,7 @@ import { Dispatch } from 'redux';
 import { ActionType } from '../action-types';
 import { Action } from '../actions';
 
-export const searchRepositories = (term: string) => {
+export const searchRepositories = (term: string): any => {
   return async (dispatch: Dispatch<Action>) => {
     console.log("searchRepositories !!!")
     dispatch({
@@ -29,10 +29,12 @@ export const searchRepositories = (term: string) => {
         payload: names,
       });
     } catch (err) {
-      dispatch({
-        type: ActionType.SEARCH_REPOSITORIES_ERROR,
-        payload: err.message,
-      });
+      if (err instanceof Error) {
+        dispatch({
+          type: ActionType.SEARCH_REPOSITORIES_ERROR,
+          payload: err.message,
+        });
+      }
     }
   };
 };
