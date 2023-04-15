@@ -6,3 +6,24 @@
 
 
 <img width="757" alt="use of Index" src="https://user-images.githubusercontent.com/36891099/232228594-94f5d40e-e672-412e-b147-07df3a8302d4.png">
+
+
+In the upcoming lecture, we will be adding our searchRepositories action. You will likely see a TS error in the catch block that says Object is of type 'unknown'
+
+There are two ways that you can resolve this for now:
+
+Option #1
+
+} catch (err: any) {
+Option #2
+
+...
+
+} catch (err) {
+  if (err instanceof Error) {
+    dispatch({
+      type: ActionType.SEARCH_REPOSITORIES_ERROR,
+      payload: err.message,
+    });
+  }
+}
