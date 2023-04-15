@@ -7,6 +7,10 @@
 
 <img width="757" alt="use of Index" src="https://user-images.githubusercontent.com/36891099/232228594-94f5d40e-e672-412e-b147-07df3a8302d4.png">
 
+# Big Issues with Redux/React-Redux + Typescript
+- Imports between files can turn into a mess very quickly
+- Communicating types over to your components can be challenging
+- Type def files for Redux, React-Redux, and others are possibly over-engineered
 
 In the upcoming lecture, we will be adding our searchRepositories action. You will likely see a TS error in the catch block that says Object is of type 'unknown'
 
